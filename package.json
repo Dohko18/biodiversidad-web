@@ -1,0 +1,62 @@
+{
+  "name": "mcr-shell-admin",
+  "proxy": "http://localhost:9003",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "webpack --mode production --config=webpack.prod.js --env",
+    "build:dev": "webpack --mode development",
+    "build:start": "cd dist && PORT=5020 npx serve",
+    "start": "webpack serve --mode development --config=webpack.dev.js  --env",
+    "start:live": "webpack serve --open --mode development --live-reload --hot"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Jack Herrington",
+    "email": "jherr@pobox.com"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/plugin-transform-runtime": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "autoprefixer": "^10.1.0",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-named-asset-import": "^0.3.8",
+    "css-loader": "^6.3.0",
+    "html-webpack-plugin": "^5.3.2",
+    "postcss": "^8.2.1",
+    "postcss-loader": "^4.1.0",
+    "style-loader": "^3.3.0",
+    "tsconfig-paths-webpack-plugin": "^4.1.0",
+    "typescript": "^4.5.2",
+    "webpack": "^5.57.1",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.3.1"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/icons-material": "^5.13.7",
+    "@mui/material": "^5.13.7",
+    "@mui/styled-engine-sc": "^5.12.0",
+    "@mui/x-data-grid": "^6.15.0",
+    "@reduxjs/toolkit": "^1.9.5",
+    "axios": "^1.6.8",
+    "axios-cache-interceptor": "^1.5.2",
+    "@integral-software/simple-menu": "^2.0.4",
+    "@integral-software/react-utilities": "^3.0.36",
+    "dotenv": "^16.4.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.1.1",
+    "react-router-dom": "^6.14.1",
+    "react-toastify": "^10.0.5",
+    "redux": "^4.2.1",
+    "redux-micro-frontend": "^1.3.0",
+    "redux-saga": "^1.2.3",
+    "styled-components": "^5.3.11"
+  }
+}

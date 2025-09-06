@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="acb5eda9-7d22-4330-9835-374c07ab04bf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="fix_webpack" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2YMI0NKzXkzu542FjhXwIwI1vPx" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/projects/integral/mycredito/mycredito-shell-admin-web/src/store&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\projects\\integral\\mycredito\\mycredito-shell-admin-web\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\projects\integral\mycredito\mycredito-shell-admin-web\src\store" />
+      <recent name="D:\projects\integral\mycredito\mycredito-shell-admin-web\src\components\home\linearprogress\_redux" />
+      <recent name="D:\projects\integral\mycredito\mycredito-shell-admin-web\src\components\home" />
+      <recent name="C:\projects\integral\mycredito\mycredito-shell-admin-web\src\components" />
+      <recent name="C:\projects\integral\mycredito\mycredito-shell-admin-web\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\projects\integral\mycredito\mycredito-shell-admin-web\src\components\home\linearprogress" />
+      <recent name="C:\projects\integral\mycredito\mycredito-shell-admin-web\src" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="acb5eda9-7d22-4330-9835-374c07ab04bf" name="Changes" comment="" />
+      <created>1700328803369</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1700328803369</updated>
+      <workItem from="1700328806947" duration="16981000" />
+      <workItem from="1700600151945" duration="1683000" />
+      <workItem from="1701668532037" duration="199000" />
+      <workItem from="1701915978231" duration="46000" />
+      <workItem from="1701916130957" duration="432000" />
+      <workItem from="1701916581429" duration="32000" />
+      <workItem from="1701916628690" duration="105000" />
+      <workItem from="1701916807471" duration="40000" />
+      <workItem from="1701916875625" duration="291000" />
+      <workItem from="1701917182938" duration="2205000" />
+      <workItem from="1703388543661" duration="52000" />
+      <workItem from="1703388610650" duration="11321000" />
+      <workItem from="1703881868051" duration="3393000" />
+      <workItem from="1704153177680" duration="10293000" />
+      <workItem from="1704484268826" duration="1365000" />
+      <workItem from="1704744988919" duration="4931000" />
+      <workItem from="1704980154961" duration="13184000" />
+      <workItem from="1711430715940" duration="1991000" />
+      <workItem from="1711550951591" duration="12917000" />
+      <workItem from="1711780854132" duration="1149000" />
+      <workItem from="1712244588725" duration="4633000" />
+      <workItem from="1712817540175" duration="1541000" />
+      <workItem from="1712821285495" duration="5946000" />
+      <workItem from="1712970128724" duration="782000" />
+      <workItem from="1712971350763" duration="18000000" />
+      <workItem from="1713017226764" duration="24076000" />
+      <workItem from="1713108594961" duration="22543000" />
+      <workItem from="1713246145422" duration="639000" />
+      <workItem from="1713416457227" duration="5715000" />
+      <workItem from="1713767848989" duration="1108000" />
+      <workItem from="1713921006564" duration="2184000" />
+      <workItem from="1713930610441" duration="779000" />
+      <workItem from="1713970821410" duration="5858000" />
+      <workItem from="1714174508898" duration="947000" />
+      <workItem from="1714175723639" duration="10000" />
+      <workItem from="1714176516377" duration="19000" />
+      <workItem from="1714181898659" duration="817000" />
+      <workItem from="1714184695586" duration="77000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
+</project>
