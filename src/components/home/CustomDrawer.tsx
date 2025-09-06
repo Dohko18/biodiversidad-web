@@ -3,8 +3,6 @@ import React, { Suspense, useEffect, useState } from "react";
 import { Drawer, MenuItem, useTheme } from "@mui/material";
 import LogoutIcon from '@mui/icons-material/Logout';
 
-const MenuOptions = React.lazy(() => import("@integral-software/simple-menu/lib/src/components/menu/MenuOptions"))
-
 export interface CustomDrawerProps {
     mobileOpen: boolean
     setMobileOpen: (value: boolean) => void
@@ -102,15 +100,7 @@ export const CustomDrawer = ({ mobileOpen, setMobileOpen, drawerWidth }: CustomD
 
     const drawer = (
         <Suspense fallback={<div>Loading...</div>}>
-            <MenuOptions initWidth={drawerWidth} open={true}
-                selectedItem={selected}
-                onSelected={(item) => {
-                    setSelected(item)
-                }}
-                resize={(size: number) => {
-                    console.log("size", size)
-                    setSize(size)
-                }} menus={menus} />
+            <div>Pruebas</div>
         </Suspense>
     );
 
