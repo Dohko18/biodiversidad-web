@@ -1,4 +1,4 @@
-import {UserModel} from "../models/UserModel";
+import {UserModel} from "../../../core/models/UserModel";
 import axios, {AxiosResponse} from "axios";
 
 

@@ -1,7 +1,30 @@
 import React, { Suspense, useEffect, useState } from "react";
 
-import { Drawer, MenuItem, useTheme } from "@mui/material";
+import {
+    Drawer,
+    MenuItem,
+    useTheme,
+    List,
+    ListItemButton,
+    ListItemIcon,
+    ListItemText,
+    Collapse
+} from "@mui/material";
 import LogoutIcon from '@mui/icons-material/Logout';
+
+import {
+    ExpandLess,
+    ExpandMore,
+    Star,
+    Payments,
+    DoneAll,
+    Face5,
+    Settings,
+    Person,
+    Domain,
+    RadioButtonUnchecked,
+} from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 export interface CustomDrawerProps {
     mobileOpen: boolean
@@ -9,98 +32,95 @@ export interface CustomDrawerProps {
     drawerWidth: number;
 }
 
+const iconMap: Record<string, JSX.Element> = {
+    star: <Star />,
+    payments: <Payments />,
+    doneAll: <DoneAll />,
+    face5: <Face5 />,
+    settings: <Settings />,
+    person: <Person />,
+    domain: <Domain />,
+    radio_button_unchecked: <RadioButtonUnchecked />,
+};
+
+const getIcon = (icon: string) => iconMap[icon] || <RadioButtonUnchecked />;
+
 export const menus = [{
     name: "Configuración",
     menu: [
         {
-            name: 'Capacidades',
+            name: 'Biodiversidad',
             icon: "star",
             link: '/capabilities',
-            collapsed: true,
             subMenu: [
-                { name: 'Crear o modificar', icon: "radio_button_unchecked", link: '/capabilities/list', subMenu: [], role: "maps.menu.view" },
-                { name: 'Grupos', icon: "radio_button_unchecked", link: '/capabilities/groups', subMenu: [], role: "maps.menu.view" },
-                { name: 'Flujos', icon: "radio_button_unchecked", link: '/auditflow', subMenu: [], role: "maps.menu.view" }
+                { name: 'Mapa', icon: "radio_button_unchecked", link: '/biodiversidad', subMenu: [], role: "maps.menu.view" },
+                { name: 'Nuevo', icon: "radio_button_unchecked", link: '/biodiversidad/nuevo', subMenu: [], role: "maps.menu.view" },
             ],
             role: ""
-        },
+        },   
         {
-            name: 'Prestamos',
-            icon: "payments",
-            link: '/loans',
-            subMenu: [
-                { name: 'Dashboard', icon: "radio_button_unchecked", link: '/loans', subMenu: [], role: "maps.menu.view" },
-                { name: 'Validar', icon: "radio_button_unchecked", link: '/loans/pending', subMenu: [], role: "maps.menu.view" },
-                { name: 'Historico', icon: "radio_button_unchecked", link: '/loans/history', subMenu: [], role: "maps.menu.view" }
-            ],
-            role: ""
-        },
-        {
-            name: 'Desembolsos',
-            icon: "paids",
-            link: '#',
-            subMenu: [
-                { name: 'Aplicar', icon: "radio_button_unchecked", link: '/disbursements', subMenu: [], role: "maps.menu.view" }
-            ],
-            role: ""
-        },
-        {
-            name: 'Validaciones',
-            icon: "doneAll",
-            link: '#',
-            subMenu: [
-                { name: 'Documentos de usuario', icon: "radio_button_unchecked", link: '/validations/bankAccount', subMenu: [], role: "maps.menu.view" },
-                { name: 'Documentos', icon: "radio_button_unchecked", link: '/validations/documents/list', subMenu: [], role: "maps.menu.view" }
-            ],
-            role: ""
-        },
-        {
-            name: 'Review',
-            icon: "face5",
-            link: '#',
-            subMenu: [
-                { name: 'Contact Us', icon: "radio_button_unchecked", link: '/reviews/contactus', subMenu: [], role: "maps.menu.view" },
-                { name: 'Testimonials', icon: "radio_button_unchecked", link: '/reviews/testimonials', subMenu: [], role: "maps.menu.view" }
-            ],
-            role: ""
-        },
-        {
-            name: 'General',
-            icon: "settings",
-            link: '#',
-            subMenu: [
-                { name: 'Dominios', icon: "domain", link: '/domains', subMenu: [], role: "maps.menu.view" }
-            ],
-            role: ""
-        },
-        {
-            name: 'usuarios',
+            name: 'Objetos',
             icon: "person",
-            link: '#',
+            link: '/capabilities',
             subMenu: [
-                { name: 'Usuarios', icon: "person", link: '/users', subMenu: [], role: "maps.menu.view" }
+                { name: 'Objeto', icon: "radio_button_unchecked", link: '/objetos', subMenu: [], role: "maps.menu.view" },
+                { name: 'Nuevo', icon: "radio_button_unchecked", link: '/objetos/nuevo', subMenu: [], role: "maps.menu.view" },
             ],
             role: ""
-        }
+        },   
     ]
 }]
 
 
 export const CustomDrawer = ({ mobileOpen, setMobileOpen, drawerWidth }: CustomDrawerProps) => {
-
+    const [open, setOpen] = useState<Record<string, boolean>>({});
+    const handleClick = (id: string) => {
+        setOpen((prev) => ({ ...prev, [id]: !prev[id] }));
+    };
     const theme = useTheme()
+    const navigate = useNavigate();
     const [isClosing, setIsClosing] = useState(false);
-    const [size, setSize] = useState(drawerWidth)
-    const [selected, setSelected] = useState(null)
+    const [selected, setSelected] = useState<{ name: string; link: string } | null>(null);
+
 
     useEffect(() => {
-        console.log("selected", selected)
+        navigate(selected?.link || '/');
         handleDrawerClose()
     }, [selected]);
 
     const drawer = (
         <Suspense fallback={<div>Loading...</div>}>
-            <div>Pruebas</div>
+            <List>
+                {menus.map((group) =>
+                    group.menu.map((menuItem) => (
+                        <React.Fragment key={menuItem.name}>
+                            <ListItemButton onClick={() => handleClick(menuItem.name)}>
+                                <ListItemIcon>{getIcon(menuItem.icon)}</ListItemIcon>
+                                <ListItemText primary={menuItem.name} />
+                                {menuItem.subMenu.length > 0 ? (
+                                    open[menuItem.name] ? <ExpandLess /> : <ExpandMore />
+                                ) : null}
+                            </ListItemButton>
+                            {menuItem.subMenu.length > 0 && (
+                                <Collapse in={open[menuItem.name]} timeout="auto" unmountOnExit>
+                                    <List component="div" disablePadding>
+                                        {menuItem.subMenu.map((sub) => (
+                                            <ListItemButton
+                                                key={sub.name}
+                                                sx={{ pl: 4 }}
+                                                onClick={() => setSelected({ name: sub.name, link: sub.link })}
+                                            >
+                                                <ListItemIcon>{getIcon(sub.icon)}</ListItemIcon>
+                                                <ListItemText primary={sub.name} />
+                                            </ListItemButton>
+                                        ))}
+                                    </List>
+                                </Collapse>
+                            )}
+                        </React.Fragment>
+                    ))
+                )}
+            </List>
         </Suspense>
     );
 
@@ -135,7 +155,7 @@ export const CustomDrawer = ({ mobileOpen, setMobileOpen, drawerWidth }: CustomD
                 <LogoutIcon color="error" />
                 Salir
             </MenuItem>
-        )
+        );
     }
 
     return (<>
@@ -160,7 +180,7 @@ export const CustomDrawer = ({ mobileOpen, setMobileOpen, drawerWidth }: CustomD
         <Drawer
             variant="permanent"
             sx={{
-                display: { xs: 'none', sm: 'block', width: size },
+                display: { xs: 'none', sm: 'block', width: drawerWidth },
                 '& .MuiDrawer-paper': {
                     boxSizing: 'border-box', width: drawerWidth, borderRight: "none",
                     backgroundColor: "transparent",
