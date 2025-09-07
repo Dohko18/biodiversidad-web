@@ -16,7 +16,7 @@ interface BasicMapProps {
 const MapComponent: React.FC<BasicMapProps> = ({
     center = [-74.0, 4.6], // Bogotá por defecto
     zoom = 6,
-    height = '400px',
+    height = 'calc(100vh - 90px)',
     onMapReady
 }) => {
     const mapContainer = useRef<HTMLDivElement>(null);

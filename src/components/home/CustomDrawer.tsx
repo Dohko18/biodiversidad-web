@@ -8,7 +8,8 @@ import {
     ListItemButton,
     ListItemIcon,
     ListItemText,
-    Collapse
+    Collapse,
+    Box
 } from "@mui/material";
 import LogoutIcon from '@mui/icons-material/Logout';
 
@@ -23,6 +24,7 @@ import {
     Person,
     Domain,
     RadioButtonUnchecked,
+    Map,
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 
@@ -41,6 +43,7 @@ const iconMap: Record<string, JSX.Element> = {
     person: <Person />,
     domain: <Domain />,
     radio_button_unchecked: <RadioButtonUnchecked />,
+    map: <Map />,
 };
 
 const getIcon = (icon: string) => iconMap[icon] || <RadioButtonUnchecked />;
@@ -48,16 +51,12 @@ const getIcon = (icon: string) => iconMap[icon] || <RadioButtonUnchecked />;
 export const menus = [{
     name: "Configuración",
     menu: [
-        {
-            name: 'Biodiversidad',
-            icon: "star",
-            link: '/capabilities',
-            subMenu: [
-                { name: 'Mapa', icon: "radio_button_unchecked", link: '/biodiversidad', subMenu: [], role: "maps.menu.view" },
-                { name: 'Nuevo', icon: "radio_button_unchecked", link: '/biodiversidad/nuevo', subMenu: [], role: "maps.menu.view" },
-            ],
-            role: ""
-        },   
+        { 
+            name: 'Mapa', 
+            icon: "map", 
+            link: '/biodiversidad', 
+            subMenu: [], 
+            role: "maps.menu.view" },
         {
             name: 'Objetos',
             icon: "person",
@@ -71,7 +70,6 @@ export const menus = [{
     ]
 }]
 
-
 export const CustomDrawer = ({ mobileOpen, setMobileOpen, drawerWidth }: CustomDrawerProps) => {
     const [open, setOpen] = useState<Record<string, boolean>>({});
     const handleClick = (id: string) => {
@@ -82,45 +80,78 @@ export const CustomDrawer = ({ mobileOpen, setMobileOpen, drawerWidth }: CustomD
     const [isClosing, setIsClosing] = useState(false);
     const [selected, setSelected] = useState<{ name: string; link: string } | null>(null);
 
-
     useEffect(() => {
-        navigate(selected?.link || '/');
-        handleDrawerClose()
+        if (selected) {
+            navigate(selected.link);
+            handleDrawerClose();
+        }
     }, [selected]);
 
     const drawer = (
         <Suspense fallback={<div>Loading...</div>}>
-            <List>
-                {menus.map((group) =>
-                    group.menu.map((menuItem) => (
-                        <React.Fragment key={menuItem.name}>
-                            <ListItemButton onClick={() => handleClick(menuItem.name)}>
-                                <ListItemIcon>{getIcon(menuItem.icon)}</ListItemIcon>
-                                <ListItemText primary={menuItem.name} />
-                                {menuItem.subMenu.length > 0 ? (
-                                    open[menuItem.name] ? <ExpandLess /> : <ExpandMore />
-                                ) : null}
-                            </ListItemButton>
-                            {menuItem.subMenu.length > 0 && (
-                                <Collapse in={open[menuItem.name]} timeout="auto" unmountOnExit>
-                                    <List component="div" disablePadding>
-                                        {menuItem.subMenu.map((sub) => (
-                                            <ListItemButton
-                                                key={sub.name}
-                                                sx={{ pl: 4 }}
-                                                onClick={() => setSelected({ name: sub.name, link: sub.link })}
-                                            >
-                                                <ListItemIcon>{getIcon(sub.icon)}</ListItemIcon>
-                                                <ListItemText primary={sub.name} />
-                                            </ListItemButton>
-                                        ))}
-                                    </List>
-                                </Collapse>
-                            )}
-                        </React.Fragment>
-                    ))
-                )}
-            </List>
+            <Box sx={{ 
+                display: 'flex', 
+                flexDirection: 'column', 
+                height: '100%',
+                pt: { xs: 1, sm: 0 } // Padding top solo en móvil
+            }}>
+                {/* Lista principal de menús */}
+                <Box sx={{ flexGrow: 1, overflow: 'auto' }}>
+                    <List>
+                        {menus.map((group) =>
+                            group.menu.map((menuItem) => (
+                                <React.Fragment key={menuItem.name}>
+                                    <ListItemButton 
+                                        onClick={() => handleClick(menuItem.name)}
+                                        sx={{
+                                            borderRadius: 1,
+                                            mx: 1,
+                                            my: 0.5,
+                                            '&:hover': {
+                                                backgroundColor: theme.palette.mode === 'dark' 
+                                                    ? 'rgba(255, 255, 255, 0.08)' 
+                                                    : 'rgba(0, 0, 0, 0.04)'
+                                            }
+                                        }}
+                                    >
+                                        <ListItemIcon>{getIcon(menuItem.icon)}</ListItemIcon>
+                                        <ListItemText primary={menuItem.name} />
+                                        {menuItem.subMenu.length > 0 ? (
+                                            open[menuItem.name] ? <ExpandLess /> : <ExpandMore />
+                                        ) : null}
+                                    </ListItemButton>
+                                    {menuItem.subMenu.length > 0 && (
+                                        <Collapse in={open[menuItem.name]} timeout="auto" unmountOnExit>
+                                            <List component="div" disablePadding>
+                                                {menuItem.subMenu.map((sub) => (
+                                                    <ListItemButton
+                                                        key={sub.name}
+                                                        sx={{ 
+                                                            pl: 5,
+                                                            borderRadius: 1,
+                                                            mx: 1,
+                                                            my: 0.25,
+                                                            '&:hover': {
+                                                                backgroundColor: theme.palette.mode === 'dark' 
+                                                                    ? 'rgba(255, 255, 255, 0.08)' 
+                                                                    : 'rgba(0, 0, 0, 0.04)'
+                                                            }
+                                                        }}
+                                                        onClick={() => setSelected({ name: sub.name, link: sub.link })}
+                                                    >
+                                                        <ListItemIcon>{getIcon(sub.icon)}</ListItemIcon>
+                                                        <ListItemText primary={sub.name} />
+                                                    </ListItemButton>
+                                                ))}
+                                            </List>
+                                        </Collapse>
+                                    )}
+                                </React.Fragment>
+                            ))
+                        )}
+                    </List>
+                </Box>
+            </Box>
         </Suspense>
     );
 
@@ -133,62 +164,53 @@ export const CustomDrawer = ({ mobileOpen, setMobileOpen, drawerWidth }: CustomD
         setIsClosing(false);
     };
 
-    const ExitButton = () => {
-        return (
-            <MenuItem
-                onClick={() => {
-                    const form = document.createElement("form");
-                    form.method = "POST";
-                    form.action = "/logout";
-                    document.body.appendChild(form);
-                    form.submit();
+    return (
+        <>
+            {/* Drawer móvil */}
+            <Drawer
+                variant="temporary"
+                open={mobileOpen}
+                onTransitionEnd={handleDrawerTransitionEnd}
+                onClose={handleDrawerClose}
+                ModalProps={{
+                    keepMounted: true,
                 }}
                 sx={{
-                    gap: 1,
-                    backgroundColor: 'rgba(244, 67, 54, 0.1)', // rojo muy suave
-                    color: 'error.main',
-                    '&:hover': {
-                        backgroundColor: 'rgba(244, 67, 54, 0.2)',
+                    display: { xs: 'block', sm: 'none' },
+                    '& .MuiDrawer-paper': {
+                        boxSizing: 'border-box', 
+                        width: drawerWidth, 
+                        borderRight: "none",
+                        backgroundColor: theme.palette.background.default,
+                        marginTop: '48px', // Espacio para AppBar
+                        height: 'calc(100vh - 48px)', // Altura total menos AppBar
                     },
                 }}
             >
-                <LogoutIcon color="error" />
-                Salir
-            </MenuItem>
-        );
-    }
+                {drawer}
+            </Drawer>
 
-    return (<>
-        <Drawer
-            variant="temporary"
-            open={mobileOpen}
-            onTransitionEnd={handleDrawerTransitionEnd}
-            onClose={handleDrawerClose}
-            ModalProps={{
-                keepMounted: true,
-            }}
-            sx={{
-                display: { xs: 'block', sm: 'none' },
-                '& .MuiDrawer-paper': {
-                    boxSizing: 'border-box', width: drawerWidth, borderRight: "none",
-                    backgroundColor: theme.palette.background.default
-                },
-            }}>
-            {drawer}
-            {ExitButton()}
-        </Drawer>
-        <Drawer
-            variant="permanent"
-            sx={{
-                display: { xs: 'none', sm: 'block', width: drawerWidth },
-                '& .MuiDrawer-paper': {
-                    boxSizing: 'border-box', width: drawerWidth, borderRight: "none",
-                    backgroundColor: "transparent",
-                    overflowX: 'hidden'
-                },
-            }} open>
-            {drawer}
-            {ExitButton()}
-        </Drawer>
-    </>)
+            {/* Drawer permanente (desktop) */}
+            <Drawer
+                variant="permanent"
+                sx={{
+                    display: { xs: 'none', sm: 'block' },
+                    width: drawerWidth,
+                    flexShrink: 0,
+                    '& .MuiDrawer-paper': {
+                        boxSizing: 'border-box', 
+                        width: drawerWidth, 
+                        borderRight: "none",
+                        backgroundColor: "transparent",
+                        overflowX: 'hidden',
+                        marginTop: '48px', // Espacio para AppBar
+                        height: 'calc(100vh - 48px)', // Altura total menos AppBar
+                    },
+                }} 
+                open
+            >
+                {drawer}
+            </Drawer>
+        </>
+    )
 }

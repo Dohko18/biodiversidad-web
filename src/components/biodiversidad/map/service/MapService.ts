@@ -28,7 +28,7 @@ class MapService {
             // Crear el mapa
             this.map = new maplibregl.Map({
                 container: defaultConfig.container,
-                style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
+                style: 'https://tiles.openfreemap.org/styles/bright',
                 center: defaultConfig.center,
                 zoom: defaultConfig.zoom,
             });

@@ -135,7 +135,7 @@ export const lightTheme = createTheme({
             paper: '#fcfae1'
         },
         border: {
-            main: '#565554'
+            main: '#ffca2d'
         },
         secondary: {
             main: '#ffca2d',
