@@ -1,5 +1,5 @@
 import {all, put, takeEvery} from "redux-saga/effects";
-import {UserService} from "../../../core/services/UserService";
+import {UserService} from "./UserService";
 import {
     findUserErrorReducer,
     findUserReducer,

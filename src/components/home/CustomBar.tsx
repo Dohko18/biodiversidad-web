@@ -59,7 +59,7 @@ export default function CustomBar({ switchMode, toggleDrawer, mode }: HomeConten
                 </IconButton>
 
                 <Typography onClick={() => navigate("/")} variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                    Alinstante
+                    Biodiversidad
                 </Typography>
 
                 <Button
