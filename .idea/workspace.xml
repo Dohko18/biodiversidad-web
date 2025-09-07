@@ -5,7 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="acb5eda9-7d22-4330-9835-374c07ab04bf" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/biodiversidad/map/_redux/mapAction.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/biodiversidad/map/_redux/mapReducer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/biodiversidad/map/_redux/mapSaga.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/biodiversidad/map/service/MapService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/biodiversidad/BiodiversidadRoutes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/biodiversidad/BiodiversidadRoutes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/store.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/store.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.dev.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.dev.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.prod.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,11 +33,23 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="fix_webpack" />
+        <entry key="$PROJECT_DIR$" value="2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Dohko18&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Dohko18/biodiversidad-web.git&quot;,
+    &quot;accountId&quot;: &quot;c5f58a9a-1faa-484e-881c-0b05dfe7ed24&quot;
+  }
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -35,7 +58,6 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2YMI0NKzXkzu542FjhXwIwI1vPx" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -44,32 +66,40 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/projects/integral/mycredito/mycredito-shell-admin-web/src/store&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/johansebastian/WebstormProjects/Estudio/react/biodiversidad-web/src/components/biodiversidad/map&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\projects\\integral\\mycredito\\mycredito-shell-admin-web\\node_modules\\typescript\\lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/johansebastian/WebstormProjects/Estudio/react/biodiversidad-web/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/biodiversidad/map" />
       <recent name="D:\projects\integral\mycredito\mycredito-shell-admin-web\src\store" />
       <recent name="D:\projects\integral\mycredito\mycredito-shell-admin-web\src\components\home\linearprogress\_redux" />
       <recent name="D:\projects\integral\mycredito\mycredito-shell-admin-web\src\components\home" />
       <recent name="C:\projects\integral\mycredito\mycredito-shell-admin-web\src\components" />
-      <recent name="C:\projects\integral\mycredito\mycredito-shell-admin-web\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\projects\integral\mycredito\mycredito-shell-admin-web\src\components\home\linearprogress" />
       <recent name="C:\projects\integral\mycredito\mycredito-shell-admin-web\src" />
     </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-WS-251.26927.40" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -117,6 +147,9 @@
       <workItem from="1714176516377" duration="19000" />
       <workItem from="1714181898659" duration="817000" />
       <workItem from="1714184695586" duration="77000" />
+      <workItem from="1757252473904" duration="41000" />
+      <workItem from="1757252674998" duration="2518000" />
+      <workItem from="1757259085724" duration="1344000" />
     </task>
     <servers />
   </component>

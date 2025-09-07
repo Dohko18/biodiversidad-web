@@ -23,7 +23,7 @@ setupCache(Axios, {
 
 
 const App = () => {
-    const [actualTheme, setActualTheme] = useState<"light" | "dark">("dark");
+    const [actualTheme, setActualTheme] = useState<"light" | "dark">("light");
 
     const theme = useMemo(
         () => (actualTheme === "light" ? lightTheme : darkTheme),

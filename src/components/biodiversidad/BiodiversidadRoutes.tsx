@@ -1,6 +1,6 @@
 import React, {Suspense} from 'react'
 import {Route, Routes} from "react-router-dom";
-import { BiodiversidadMap } from './BiodiversidadMap/BiodiversidadMap';
+import MapComponent from "./map/MapComponent";
 
 export default function BiodiversidadRoutes() {
     return (
@@ -8,7 +8,7 @@ export default function BiodiversidadRoutes() {
             <Routes>
                 <Route path="/" element={
                     <Suspense fallback={"🌀 Loading"}>
-                        <BiodiversidadMap />
+                        <MapComponent />
                     </Suspense>
                 }>
                     <Route path=":id/new"

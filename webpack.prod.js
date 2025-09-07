@@ -80,6 +80,10 @@ module.exports = (_, argv) => {
                         singleton: true,
                         requiredVersion: deps.react,
                     },
+                    "maplibre-gl": {
+                        singleton: true,
+                        requiredVersion: deps["maplibre-gl"],
+                    },
                     "react-dom": {
                         singleton: true,
                         requiredVersion: deps["react-dom"],

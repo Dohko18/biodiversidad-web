@@ -6,6 +6,8 @@ import userReducer from "../components/user/_redux/userReducer";
 import {user_WatchAsync} from "../components/user/_redux/userSaga";
 import linearProgressReducer from "../components/home/linearprogress/_redux/linearProgressReducer";
 import {linearProgress_WatchAsync} from "../components/home/linearprogress/_redux/linearProgressSaga";
+import mapReducer from "../components/biodiversidad/map/_redux/mapReducer";
+import {map_WatchAsync} from "../components/biodiversidad/map/_redux/mapSaga";
 
 export const globalStore = GlobalStore.Get();
 
@@ -13,12 +15,14 @@ const sagaMiddleware = createSagaMiddleware();
 
 const localReducer = {
     user: userReducer,
-    linearProgress: linearProgressReducer
+    linearProgress: linearProgressReducer,
+    map: mapReducer,
 }
 
 const localWatchSaga = [
     user_WatchAsync,
-    linearProgress_WatchAsync
+    linearProgress_WatchAsync,
+    map_WatchAsync
 ]
 
 export const store = configureStore({

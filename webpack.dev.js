@@ -5,21 +5,25 @@ require('dotenv').config()
 const webpack = require('webpack');
 
 const deps = require("./package.json").dependencies;
-module.exports = (_, argv) => {
+delete deps["maplibre-gl"];
 
+module.exports = (_, argv) => {
     const domain = argv.env.domain || 'localhost';
 
-    console.log("domain", domain)
+    console.log("domain", domain);
 
     return {
         devtool: "eval-cheap-module-source-map",
         resolve: {
             extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
-            plugins: [new TsconfigPathsPlugin({ configFile: "./tsconfig.json" })]
+            plugins: [new TsconfigPathsPlugin({ configFile: "./tsconfig.json" })],
+            alias: {
+                "maplibre-gl$": require.resolve("maplibre-gl"),
+            },
         },
 
         devServer: {
-            port: 7007,
+            port: 7009,
             host: "0.0.0.0",
             historyApiFallback: true,
             proxy: {
