@@ -1,19 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
+import {MapState} from "../model";
 
-export interface MapModel {
-  isInitialized: boolean;
-  isLoading: boolean;
-  error: string | null;
-  mapInfo: {
-    center: { lng: number; lat: number } | null;
-    zoom: number;
-    bearing: number;
-    pitch: number;
-    isLoaded: boolean;
-  } | null;
-}
-
-const initialState: MapModel = {
+const initialState: MapState = {
   isInitialized: false,
   isLoading: false,
   error: null,
@@ -66,7 +54,6 @@ export const {
   initializeMapSuccessReducer,
   initializeMapErrorReducer,
   destroyMapReducer,
-  clearMapErrorReducer,
 } = mapSlice.actions;
 
 export default mapSlice.reducer;

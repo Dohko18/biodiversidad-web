@@ -1,4 +1,5 @@
-import maplibregl from 'maplibre-gl';
+import maplibregl, {LngLat} from 'maplibre-gl';
+import {MapInfo} from "../model/MapInfo";
 
 export interface MapConfig {
     container: HTMLElement;
@@ -6,17 +7,13 @@ export interface MapConfig {
     zoom?: number;
 }
 
+
 class MapService {
     private map: maplibregl.Map | null = null;
     private isInitialized = false;
 
-    /**
-     * Inicializa el mapa
-     */
     initialize(config: MapConfig): maplibregl.Map {
-        // Si ya existe un mapa, destruirlo primero
         try {
-            // Configuración por defecto para Colombia
             const defaultConfig = {
                 center: [-74.0, 4.6] as [number, number], // Bogotá
                 zoom: 6,
@@ -57,19 +54,12 @@ class MapService {
         }
     }
 
-    /**
-     * Verifica si el mapa está inicializado
-     */
     isMapInitialized(): boolean {
         return this.isInitialized && this.map !== null;
     }
 
-    /**
-     * Obtiene información básica del mapa
-     */
-    getMapInfo() {
+    getMapInfo(): MapInfo | null {
         if (!this.map) return null;
-
         return {
             center: this.map.getCenter(),
             zoom: this.map.getZoom(),
@@ -79,9 +69,6 @@ class MapService {
         };
     }
 
-    /**
-     * Destruye el mapa y limpia recursos
-     */
     destroy(): void {
         if (this.map) {
             console.log('MapService: Destruyendo mapa...');
@@ -93,6 +80,5 @@ class MapService {
     }
 }
 
-// Instancia singleton
 export const mapService = new MapService();
 export default MapService;

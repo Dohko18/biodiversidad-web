@@ -51,12 +51,16 @@ const getIcon = (icon: string) => iconMap[icon] || <RadioButtonUnchecked />;
 export const menus = [{
     name: "Configuración",
     menu: [
-        { 
-            name: 'Mapa', 
-            icon: "map", 
-            link: '/biodiversidad', 
-            subMenu: [], 
-            role: "maps.menu.view" },
+        {
+            name: 'Biodiversidad',
+            icon: "star",
+            link: '/capabilities',
+            subMenu: [
+                { name: 'Mapa', icon: "radio_button_unchecked", link: '/biodiversidad', subMenu: [], role: "maps.menu.view" },
+                { name: 'Nuevo', icon: "radio_button_unchecked", link: '/biodiversidad/nuevo', subMenu: [], role: "maps.menu.view" },
+            ],
+            role: ""
+        },
         {
             name: 'Objetos',
             icon: "person",

@@ -1,10 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { Box, CircularProgress, Alert, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
-import 'maplibre-gl/dist/maplibre-gl.css';
 import { GlobalStore } from 'redux-micro-frontend';
-import { MapModel } from './_redux/mapReducer';
 import { mapDestroyAction, mapInitializeAction } from './_redux/mapAction';
+import {MapState} from "./model";
 
 interface BasicMapProps {
     center?: [number, number];
@@ -19,16 +18,17 @@ const MapComponent: React.FC<BasicMapProps> = ({
     height = 'calc(100vh - 90px)',
     onMapReady
 }) => {
+
     const mapContainer = useRef<HTMLDivElement>(null);
     const globalStore = GlobalStore.Get();
 
     // Selector para el estado del mapa
-    const map = useSelector((state: { map: MapModel }) => state.map);
+    const map = useSelector((state: { map: MapState }) => state.map);
 
     // Effect cuando el mapa se inicializa correctamente
     useEffect(() => {
         if (map.isInitialized && onMapReady) {
-            console.log('🔥 MapComponent: Mapa listo para usar, ejecutando callback');
+            console.log('MapComponent: Mapa listo para usar, ejecutando callback');
             onMapReady();
         }
     }, [map.isInitialized, onMapReady]);
@@ -40,7 +40,7 @@ const MapComponent: React.FC<BasicMapProps> = ({
                                  !map.isInitialized;
 
         if (shouldInitialize) {
-            console.log('🚀 EJECUCIÓN #1: INICIANDO INICIALIZACIÓN DEL MAPA');
+            console.log('INICIANDO INICIALIZACIÓN DEL MAPA');
 
             const action = mapInitializeAction({
                 container: mapContainer.current,
@@ -121,8 +121,6 @@ const MapComponent: React.FC<BasicMapProps> = ({
                     </Alert>
                 </Box>
             )}
-
-            {/* Información de desarrollo */}
             {process.env.NODE_ENV === 'development' && map.isInitialized && map.mapInfo && (
                 <Box
                     sx={{

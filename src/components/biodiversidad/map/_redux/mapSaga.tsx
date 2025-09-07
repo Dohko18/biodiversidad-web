@@ -1,7 +1,6 @@
 import { put, takeEvery, call } from 'redux-saga/effects';
 import { PayloadAction } from '@reduxjs/toolkit';
 import { SagaIterator } from 'redux-saga';
-import { mapService } from '../service/MapService';
 import { mapActionType, InitializeMapPayload } from './mapAction';
 import {
     initializeMapReducer,
@@ -9,6 +8,7 @@ import {
     initializeMapErrorReducer,
     destroyMapReducer
 } from './mapReducer';
+import {mapFacade} from "../service/MapFacade";
 
 function* initializeMapSaga(action: PayloadAction<InitializeMapPayload>): SagaIterator {
     try {
@@ -23,11 +23,11 @@ function* initializeMapSaga(action: PayloadAction<InitializeMapPayload>): SagaIt
             zoom: config?.zoom || 6
         };
 
-        const mapInstance = yield call([mapService, 'initialize'], mapConfig);
+        const mapInstance = yield call([mapFacade, 'init'], mapConfig);
 
         if (mapInstance) {
         
-            const mapInfo = yield call([mapService, 'getMapInfo']);
+            const mapInfo = yield call([mapFacade, 'getInfo']);
 
             yield put(initializeMapSuccessReducer(mapInfo));
 
@@ -47,15 +47,13 @@ function* destroyMapSaga(action: PayloadAction<void>): SagaIterator {
     try {
         console.log('mapSaga: Destruyendo mapa...');
         
-        yield call([mapService, 'destroy']);
+        yield call([mapFacade, 'destroy']);
         
         yield put(destroyMapReducer(action));
         
         console.log('mapSaga: Mapa destruido correctamente');
     } catch (error) {
         console.error('mapSaga: Error destruyendo mapa:', error);
-        
-        // ✅ Aún así limpiar el estado aunque haya error
         yield put(destroyMapReducer(action));
     }
 }

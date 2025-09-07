@@ -5,18 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="acb5eda9-7d22-4330-9835-374c07ab04bf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/biodiversidad/map/_redux/mapAction.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/biodiversidad/map/_redux/mapReducer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/biodiversidad/map/_redux/mapSaga.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/biodiversidad/map/service/MapService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/components/biodiversidad/map/geojson/antioquia.geojson" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/biodiversidad/map/model/MapInfo.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/biodiversidad/map/model/MapState.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/biodiversidad/map/model/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/biodiversidad/map/service/GeoJsonService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/biodiversidad/map/service/MapFacade.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/biodiversidad/BiodiversidadRoutes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/biodiversidad/BiodiversidadRoutes.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/store.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/store.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.dev.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.dev.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.prod.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.prod.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/biodiversidad/map/MapComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/biodiversidad/map/MapComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/biodiversidad/map/_redux/mapReducer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/biodiversidad/map/_redux/mapReducer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/biodiversidad/map/_redux/mapSaga.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/biodiversidad/map/_redux/mapSaga.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/biodiversidad/map/service/MapService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/biodiversidad/map/service/MapService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/home/CustomDrawer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/home/CustomDrawer.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +33,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="2" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -68,10 +68,10 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/johansebastian/WebstormProjects/Estudio/react/biodiversidad-web/src/components/biodiversidad/map&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/johansebastian/WebstormProjects/Estudio/react/biodiversidad-web/src/assets/components/biodiversidad/map/geojson&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -83,11 +83,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/assets/components/biodiversidad/map/geojson" />
       <recent name="$PROJECT_DIR$/src/components/biodiversidad/map" />
       <recent name="D:\projects\integral\mycredito\mycredito-shell-admin-web\src\store" />
       <recent name="D:\projects\integral\mycredito\mycredito-shell-admin-web\src\components\home\linearprogress\_redux" />
       <recent name="D:\projects\integral\mycredito\mycredito-shell-admin-web\src\components\home" />
-      <recent name="C:\projects\integral\mycredito\mycredito-shell-admin-web\src\components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\projects\integral\mycredito\mycredito-shell-admin-web\src\components\home\linearprogress" />
@@ -150,6 +150,8 @@
       <workItem from="1757252473904" duration="41000" />
       <workItem from="1757252674998" duration="2518000" />
       <workItem from="1757259085724" duration="1344000" />
+      <workItem from="1757267234924" duration="1690000" />
+      <workItem from="1757280694188" duration="3828000" />
     </task>
     <servers />
   </component>
